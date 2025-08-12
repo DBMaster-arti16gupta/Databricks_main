@@ -1,0 +1,14 @@
+# The main pipeline for DAB_PYTON_TEMPLATE
+resources:
+  pipelines:
+    DAB_PYTON_TEMPLATE_pipeline:
+      name: DAB_PYTON_TEMPLATE_pipeline
+      catalog: workspace
+      schema: DAB_PYTON_TEMPLATE_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
